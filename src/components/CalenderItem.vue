@@ -6,18 +6,18 @@
 </template>
 
 <script>
-export default {  //日期小方块
+export default { // 日期小方块
   name: 'CalenderItem',
   props: ['item', 'currentDay'],
   computed: {
-    day () {    //计算日期
+    day () { // 计算日期
       if (this.item) {
         return this.item.getDate()
       } else {
-        return 0
+        return ''
       }
     },
-    isCurrentDay () { //判断是不是输入的日期
+    isCurrentDay () { // 判断是不是输入的日期
       return this.currentDay.toString() === this.item.toString()
     }
   }

@@ -21,19 +21,23 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## 实现功能
-1 生成当月的日历，并且标记当天的日期
-2 在输入框中输入日期会跳转到对应的月份，并标记输入的日期
-3 中间两个按钮( < >)控制月份的更改，可以切换月份
-4 旁边两个按钮( << >>)控制月份的更改，可以切换年份
+1. 生成当月的日历，并且标记当天的日期
+2.  在输入框中输入日期会跳转到对应的月份，并标记输入的日期
+3. 中间两个按钮( < >)控制月份的更改，可以切换月份
+4. 旁边两个按钮( << >>)控制月份的更改，可以切换年份
+5. 点击日期的格子会，弹出当前的日期
 
 ### 日历生成的核心算法
-获取某一日期：计算日期当月的第一天(firstDate)和当月的最后一天(lastDate)
-计算日历开始的位置 startPos：firstDate.getDay()-1
-计算当月的总天数 totalDays：lastDate.getDate()
-计算存放日期的行数 rows ：Math.ceil((startPos +totalDay)/7)
-需要的总格子数totalItems :rows*7
+1. 获取某一日期：计算日期当月的第一天(firstDate)和当月的最后一天(lastDate)
+2. 计算日历开始的位置 startPos：firstDate.getDay()+1
+3. 计算当月的总天数 totalDays：lastDate.getDate()
+4. 计算存放日期的行数 rows ：Math.ceil((startPos +totalDay)/7)
+    需要的总格子数totalItems :rows*7
 
 ### 月份切换
 上一个月 gotolastMonth:将当前日期的月份减一，当month<0 时 let month = 11
-下一个月 gotonextMonth:将当前日期的月份加一，当month==12 时 let month = 0
+下一个月 gotonextMonth:将当前日期的月份加一，当month===12 时 let month = 0
+
+### 年份切换
+直接更改日期的year值就可以了
 

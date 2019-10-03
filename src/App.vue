@@ -39,13 +39,13 @@ export default {
         e.target.value = ''
       }
     },
-    gotolastYear () {//切换到上一年
+    gotolastYear () { // 切换到上一年
       this.inputDate = new Date(this.inputDate.getFullYear() - 1, this.inputDate.getMonth(), this.inputDate.getDate())
     },
-    gotonextYear () { //切换到下一年
+    gotonextYear () { // 切换到下一年
       this.inputDate = new Date(this.inputDate.getFullYear() + 1, this.inputDate.getMonth(), this.inputDate.getDate())
     },
-    gotolastMonth () { //切换到上一个月
+    gotolastMonth () { // 切换到上一个月
       var currentMonth = this.inputDate.getMonth()
       if (currentMonth === 0) {
         this.inputDate = new Date(this.inputDate.getFullYear() - 1, 11, 1)
@@ -53,7 +53,7 @@ export default {
         this.inputDate = new Date(this.inputDate.getFullYear(), currentMonth - 1, 1)
       }
     },
-    gotoNextMonth () { //切换到下一个月
+    gotoNextMonth () { // 切换到下一个月
       var currentMonth = this.inputDate.getMonth()
       if (currentMonth === 12) {
         this.inputDate = new Date(this.inputDate.getFullYear() + 1, 0, 1)
