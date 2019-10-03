@@ -1,7 +1,7 @@
 <template>
   <div :class="{ 'calender-item':true, currentDay: isCurrentDay }"
   >
-    {{ day>0 ? day : '' }}
+    {{ day}}
   </div>
 </template>
 
@@ -16,9 +16,6 @@ export default {  //日期小方块
       } else {
         return 0
       }
-    },
-    showToday () { //当日期大于0时才显示
-      return this.day > 0
     },
     isCurrentDay () { //判断是不是输入的日期
       return this.currentDay.toString() === this.item.toString()

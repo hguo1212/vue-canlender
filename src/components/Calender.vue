@@ -84,11 +84,11 @@ export default {
       let arr = []
       for (let i = 1; i <= this.totalItems; i++) { //仅在当月日期的位置放入日期，其余位置放入0占位
         if (i < this.startPos) {
-          arr.push(0)
+          arr.push('')
         } else if (i < this.startPos + this.totalDays) {
           arr.push(new Date(this.inputDate.getFullYear(), this.inputDate.getMonth(), (i - this.startPos) + 1))
         } else {
-          arr.push(0)
+          arr.push('')
         }
       }
       return arr
