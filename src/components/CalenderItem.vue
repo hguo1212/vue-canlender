@@ -6,21 +6,21 @@
 </template>
 
 <script>
-export default {
+export default {  //日期小方块
   name: 'CalenderItem',
   props: ['item', 'currentDay'],
   computed: {
-    day () {
+    day () {    //计算日期
       if (this.item) {
         return this.item.getDate()
       } else {
         return 0
       }
     },
-    showToday () {
+    showToday () { //当日期大于0时才显示
       return this.day > 0
     },
-    isCurrentDay () {
+    isCurrentDay () { //判断是不是输入的日期
       return this.currentDay.toString() === this.item.toString()
     }
   }

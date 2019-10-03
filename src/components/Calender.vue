@@ -42,7 +42,7 @@ export default {
     CalenderItem
   },
   methods: {
-    handleClileItem (e) {
+    handleClileItem (e) { //当点击日期格子的时候弹出格子代表的日期
       if (e.target.innerText) {
         alert(this.inputDate.getFullYear() + '年' + (this.inputDate.getMonth() + 1) + '月' + e.target.innerText + '日')
       }
@@ -61,19 +61,19 @@ export default {
     }
   },
   computed: {
-    firstDate () {
+    firstDate () {  //获取当月的第一天
       return new Date(this.inputDate.getFullYear(), this.inputDate.getMonth(), 1)
     },
-    lastDate () {
+    lastDate () { //获取当月的最后一天
       return new Date(this.inputDate.getFullYear(), this.inputDate.getMonth() + 1, 0)
     },
-    totalDays () {
+    totalDays () {//获取当月的总天数
       return this.lastDate.getDate()
     },
-    startPos () {
+    startPos () {//获取当月日期在日历中开始的位置
       return this.firstDate.getDay() + 1
     },
-    totalItems () {
+    totalItems () {//计算总共日历格子的总数
       let calTotalbox = this.startPos + this.totalDays
       if (calTotalbox % 7 < 2) {
         return (Math.floor(calTotalbox / 7)) * 7
@@ -82,7 +82,7 @@ export default {
     },
     itemList () {
       let arr = []
-      for (let i = 1; i <= this.totalItems; i++) {
+      for (let i = 1; i <= this.totalItems; i++) { //仅在当月日期的位置放入日期，其余位置放入0占位
         if (i < this.startPos) {
           arr.push(0)
         } else if (i < this.startPos + this.totalDays) {
